@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {InputNumber, Button, Checkbox} from 'antd';
+import {InputNumber, Button, Checkbox, Icon} from 'antd';
 import TweenOne from 'rc-tween-one';
 import Children from 'rc-tween-one/lib/plugin/ChildrenPlugin';
 import PropTypes from 'prop-types';
@@ -80,9 +80,7 @@ export default class Number extends Component {
                     </Button>
                 </div>
                 <div className="move1-body">
-                    <div>
-                        <Button type="primary" onClick={this.toNext}>下一个</Button>
-                    </div>
+                    <Icon type="arrow-right" onClick={this.toNext}/>
                 </div>
             </div>
         );

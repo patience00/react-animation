@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button} from 'antd';
+import {Button,Icon} from 'antd';
 import logo from "../logo.svg";
 
 
@@ -16,7 +16,8 @@ export default class Head extends Component{
             <div className="App">
                 <header className="App-header">
                     <img src={logo} className="App-logo" alt="logo" />
-                    <Button type="primary" onClick={this.toNext}>下一个</Button>
+                    {/*<Button type="primary" onClick={this.toNext}>下一个</Button>*/}
+                    <Icon type="arrow-right" onClick={this.toNext}/>
                 </header>
             </div>
         )

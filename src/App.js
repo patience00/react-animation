@@ -5,6 +5,8 @@ import Head from "./component/head";
 import Move1 from "./component/move1";
 import Number from "./component/number";
 import Logo from "./component/logo";
+import BannerDemo from "./component/bannerDemo";
+import BannerDemo2 from "./component/bannerDemo2";
 
 class App extends Component {
     render() {
@@ -14,6 +16,8 @@ class App extends Component {
                 <Route path="/move1" component={Move1}></Route>
                 <Route path="/number" component={Number}></Route>
                 <Route path="/logo" component={Logo}></Route>
+                <Route path="/banner" component={BannerDemo}></Route>
+                <Route path="/banner2" component={BannerDemo2}></Route>
                 <Redirect to="/head"/>
             </Switch>
         );

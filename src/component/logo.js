@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import TweenOne from 'rc-tween-one';
 import '../style/move1.css';
 import PathPlugin from 'rc-tween-one/lib/plugin/PathPlugin';
+import {Button} from "antd";
 TweenOne.plugins.push(PathPlugin);
 
 export default class Logo extends Component{
@@ -23,7 +24,7 @@ export default class Logo extends Component{
     }
 
     toNext=()=>{
-        this.props.history.push('/move1');
+        this.props.history.push('/banner');
     }
 
     render() {
@@ -40,7 +41,7 @@ export default class Logo extends Component{
                 <svg width="200" height="200">
                     <path d={this.path} fill="none" stroke="rgba(1, 155, 240, 0.2)"/>
                 </svg>
-
+                <Button type="primary" onClick={this.toNext}>下一个动画</Button>
             </div>
             </div>
 
