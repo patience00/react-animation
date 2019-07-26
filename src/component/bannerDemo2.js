@@ -1,8 +1,10 @@
 import BannerAnim from 'rc-banner-anim';
-import TweenOne, { TweenOneGroup } from 'rc-tween-one';
+import TweenOne, {TweenOneGroup} from 'rc-tween-one';
 import 'rc-banner-anim/assets/index.css';
 import React, {Component} from 'react';
-const { Element, Arrow, Thumb } = BannerAnim;
+import {Button} from "antd";
+
+const {Element, Arrow, Thumb} = BannerAnim;
 const BgElement = Element.BgElement;
 export default class Demo extends Component {
     constructor() {
@@ -29,8 +31,8 @@ export default class Demo extends Component {
     }
 
 
-    toNext=()=>{
-        this.props.history.push('/banner1');
+    toNext = () => {
+        this.props.history.push('/snake');
     }
 
 
@@ -94,96 +96,102 @@ export default class Demo extends Component {
     render() {
         const intArray = this.getNextPrevNumber();
         const thumbChildren = this.imgArray.map((img, i) =>
-            <span key={i}><i style={{ backgroundImage: `url(${img})` }} /></span>
+            <span key={i}><i style={{backgroundImage: `url(${img})`}}/></span>
         );
         return (
-            <BannerAnim
-                onChange={this.onChange}
-                onMouseEnter={this.onMouseEnter}
-                onMouseLeave={this.onMouseLeave}
-                prefixCls="custom-arrow-thumb"
-            >
-                <Element key="aaa"
-                         prefixCls="banner-user-elem"
+            <div>
+                <BannerAnim
+                    onChange={this.onChange}
+                    onMouseEnter={this.onMouseEnter}
+                    onMouseLeave={this.onMouseLeave}
+                    prefixCls="custom-arrow-thumb"
                 >
-                    <BgElement
-                        key="bg"
-                        className="bg"
-                        style={{
-                            backgroundImage: `url(${this.imgArray[0]})`,
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'center',
-                        }}
-                    />
-                    <TweenOne className="banner-user-title" animation={{ y: 30, opacity: 0, type: 'from' }}>
-                        Ant Motion Banner
-                    </TweenOne>
-                    <TweenOne
-                        className="banner-user-text"
-                        animation={{ y: 30, opacity: 0, type: 'from', delay: 100 }}
+                    <Element key="aaa"
+                             prefixCls="banner-user-elem"
                     >
-                        The Fast Way Use Animation In React
-                    </TweenOne>
-                </Element>
-                <Element key="bbb"
-                         prefixCls="banner-user-elem"
-                >
-                    <BgElement
-                        key="bg"
-                        className="bg"
-                        style={{
-                            backgroundImage: `url(${this.imgArray[1]})`,
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'center',
-                        }}
-                    />
-                    <TweenOne className="banner-user-title" animation={{ y: 30, opacity: 0, type: 'from' }}>
-                        Ant Motion Banner
-                    </TweenOne>
-                    <TweenOne
-                        className="banner-user-text"
-                        animation={{ y: 30, opacity: 0, type: 'from', delay: 100 }}
+                        <BgElement
+                            key="bg"
+                            className="bg"
+                            style={{
+                                backgroundImage: `url(${this.imgArray[0]})`,
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center',
+                            }}
+                        />
+                        <TweenOne className="banner-user-title" animation={{y: 30, opacity: 0, type: 'from'}}>
+                            Ant Motion Banner
+                        </TweenOne>
+                        <TweenOne
+                            className="banner-user-text"
+                            animation={{y: 30, opacity: 0, type: 'from', delay: 100}}
+                        >
+                            The Fast Way Use Animation In React
+                        </TweenOne>
+                    </Element>
+                    <Element key="bbb"
+                             prefixCls="banner-user-elem"
                     >
-                        The Fast Way Use Animation In React
-                    </TweenOne>
-                </Element>
-                <Arrow arrowType="prev" key="prev" prefixCls="user-arrow" component={TweenOne}
-                       onMouseEnter={this.prevEnter}
-                       onMouseLeave={this.prevLeave}
-                       animation={{ left: this.state.prevEnter ? 0 : -120 }}
-                >
-                    <div className="arrow"></div>
-                    <TweenOneGroup
-                        enter={{ opacity: 0, type: 'from' }}
-                        leave={{ opacity: 0 }}
-                        appear={false}
-                        className="img-wrapper" component="ul"
+                        <BgElement
+                            key="bg"
+                            className="bg"
+                            style={{
+                                backgroundImage: `url(${this.imgArray[1]})`,
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center',
+                            }}
+                        />
+                        <TweenOne className="banner-user-title" animation={{y: 30, opacity: 0, type: 'from'}}>
+                            Ant Motion Banner
+                        </TweenOne>
+                        <TweenOne
+                            className="banner-user-text"
+                            animation={{y: 30, opacity: 0, type: 'from', delay: 100}}
+                        >
+                            The Fast Way Use Animation In React
+                        </TweenOne>
+                    </Element>
+                    <Arrow arrowType="prev" key="prev" prefixCls="user-arrow" component={TweenOne}
+                           onMouseEnter={this.prevEnter}
+                           onMouseLeave={this.prevLeave}
+                           animation={{left: this.state.prevEnter ? 0 : -120}}
                     >
-                        <li style={{ backgroundImage: `url(${this.imgArray[intArray[0]]})`}} key={intArray[0]} />
-                    </TweenOneGroup>
-                </Arrow>
-                <Arrow arrowType="next" key="next" prefixCls="user-arrow" component={TweenOne}
-                       onMouseEnter={this.nextEnter}
-                       onMouseLeave={this.nextLeave}
-                       animation={{ right: this.state.nextEnter ? 0 : -120 }}
-                >
-                    <div className="arrow"></div>
-                    <TweenOneGroup
-                        enter={{ opacity: 0, type: 'from' }}
-                        leave={{ opacity: 0 }}
-                        appear={false}
-                        className="img-wrapper"
-                        component="ul"
+                        <div className="arrow"></div>
+                        <TweenOneGroup
+                            enter={{opacity: 0, type: 'from'}}
+                            leave={{opacity: 0}}
+                            appear={false}
+                            className="img-wrapper" component="ul"
+                        >
+                            <li style={{backgroundImage: `url(${this.imgArray[intArray[0]]})`}} key={intArray[0]}/>
+                        </TweenOneGroup>
+                    </Arrow>
+                    <Arrow arrowType="next" key="next" prefixCls="user-arrow" component={TweenOne}
+                           onMouseEnter={this.nextEnter}
+                           onMouseLeave={this.nextLeave}
+                           animation={{right: this.state.nextEnter ? 0 : -120}}
                     >
-                        <li style={{ backgroundImage: `url(${this.imgArray[intArray[1]]})`}} key={intArray[1]} />
-                    </TweenOneGroup>
-                </Arrow>
-                <Thumb prefixCls="user-thumb" key="thumb" component={TweenOne}
-                       animation={{ bottom: this.state.thumbEnter ? 0 : -70 }}
-                >
-                    {thumbChildren}
-                </Thumb>
-            </BannerAnim>
+                        <div className="arrow"></div>
+                        <TweenOneGroup
+                            enter={{opacity: 0, type: 'from'}}
+                            leave={{opacity: 0}}
+                            appear={false}
+                            className="img-wrapper"
+                            component="ul"
+                        >
+                            <li style={{backgroundImage: `url(${this.imgArray[intArray[1]]})`}} key={intArray[1]}/>
+                        </TweenOneGroup>
+                    </Arrow>
+                    <Thumb prefixCls="user-thumb" key="thumb" component={TweenOne}
+                           animation={{bottom: this.state.thumbEnter ? 0 : -70}}
+                    >
+                        {thumbChildren}
+                    </Thumb>
+                </BannerAnim>
+                <div className="move1-body">
+                    <Button type="primary" onClick={this.toNext}>下一个动画</Button>
+
+                </div>
+            </div>
         );
     }
 }

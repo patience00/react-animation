@@ -7,6 +7,7 @@ import Number from "./component/number";
 import Logo from "./component/logo";
 import BannerDemo from "./component/bannerDemo";
 import BannerDemo2 from "./component/bannerDemo2";
+import Snake from "./component/snake";
 
 class App extends Component {
     render() {
@@ -18,6 +19,7 @@ class App extends Component {
                 <Route path="/logo" component={Logo}></Route>
                 <Route path="/banner" component={BannerDemo}></Route>
                 <Route path="/banner2" component={BannerDemo2}></Route>
+                <Route path="/snake" component={Snake}></Route>
                 <Redirect to="/head"/>
             </Switch>
         );
